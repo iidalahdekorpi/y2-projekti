@@ -1,5 +1,3 @@
-from coordinates import Coordinates
-from read_file_IO import ReadFile
 
 class Points():
     
@@ -9,9 +7,9 @@ class Points():
         
         
     def add_point(self, point):
-        self.point.append(point)
+        self.points.append(point)
         
-    def sort_points(self, point):
+    def get_sorted(self):
         return sorted(self.points)
     
     def get_x_max(self):

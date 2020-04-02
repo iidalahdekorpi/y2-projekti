@@ -1,16 +1,15 @@
-
 from corrupted_coordinate_file_error import CorruptedCoordinateFileError
-from points import Point
+from points import Points
 from coordinates import Coordinates
+from lineplot import Lineplot
 
-class ReadFile:
+class ReadFile():
         
     def load_coordinates(self, input):
-        
+
+        self.plot = Lineplot()
+        points_read = []
         try:
-            x_read = False
-            y_read = False
-            group_read = False 
             file = open(input, "r")
             for line in file:
                 line = line.split(",")
@@ -19,21 +18,16 @@ class ReadFile:
                 x = line[0]
                 y = line[1]
                 group = line[2]
-                if x.isdigit:
-                    x_read = True 
-                else:
-                    raise CorruptedCoordinateFileError("ERROR in x-coordinate data format")
-                if y.isdigit:
-                    y_read = True
-                else:
-                    raise CorruptedCoordinateFileError("ERROR in y-coordinate data format")
-                new_point = Coordinates(x,y)
-               
-                   
-            
-               
-               
-               
+                if group  not in self.plot.lines:
+                    points = Points(group)
+                points.add_point(Coordinates(x,y))
+                points_read.append(points)
+            file.close()
+            for p in points_read:
+                self.plot.add_line(p.group, p.get_sorted)
+            return self.plot
+
+
         except OSError:
             raise CorruptedCoordinateFileError("ERROR reading the file")       
                
