@@ -44,7 +44,9 @@ class GUI(QtWidgets.QMainWindow):
 
     def draw_grid(self):
 
-        # Draw_grid metodi piirtää gridin kuvaajaan
+        # Draw_grid metodi piirtää gridin kuvaajaa
+        pen = QtGui.QPen()
+        pen.setStyle(QtGui.Q.DotLine)
 
         for x in range(self.width):
             for y in range(self.height):
@@ -66,31 +68,5 @@ class GUI(QtWidgets.QMainWindow):
         self.x_axis.setPen(pen)
         self.y_axis.setPen(pen)
 
-        
 
-'''
-        self.r_arrow1 = QtWidgets.QGraphicsLineItem(580, 280, 600, 300)
-        self.r_arrow1.setPen(pen)
-        self.r_arrow2 = QtWidgets.QGraphicsLineItem(580, 320, 600, 300)
-        self.r_arrow2.setPen(pen)
-        self.scene.addItem(self.r_arrow1)
-        self.scene.addItem(self.r_arrow2)
-
-        self.l_arrow1 = QtWidgets.QGraphicsLineItem(280, 580, 300, 600)
-        self.l_arrow1.setPen(pen)
-        self.l_arrow2 = QtWidgets.QGraphicsLineItem(300, 600, 320, 580)
-        self.l_arrow2.setPen(pen)
-        self.scene.addItem(self.l_arrow1)
-        self.scene.addItem(self.l_arrow2)
-        
-'''
-
-
-
-'''    
-    def draw_lines(self):
-
-    def menu_bar(self):
-'''
-
-    
+   
