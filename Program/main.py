@@ -3,8 +3,9 @@ from PyQt5 import QtWidgets
 from gui import GUI
 
 def main():
-    
-    file = input("Inset filename: \n")
+    ''
+    #file = input("Insert filename: \n")
+    file = 'Program/esim.txt'
     global app
     app = QtWidgets.QApplication(sys.argv)
     gui = GUI(file)

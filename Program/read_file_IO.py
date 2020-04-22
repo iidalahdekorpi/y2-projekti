@@ -10,8 +10,8 @@ class ReadFile():
         self.plot = Lineplot()
         points_read = []
         try:
-            file = open(input, "r")
-            for line in file:
+            f = open(input, "r")
+            for line in f:
                 line = line.split(",")
                 if len(line) != 3:
                     raise CorruptedCoordinateFileError("ERROR in data format")
@@ -22,7 +22,7 @@ class ReadFile():
                     points = Points(group)
                 points.add_point(Coordinates(x,y))
                 points_read.append(points)
-            file.close()
+            f.close()
             for p in points_read:
                 self.plot.add_line(p.group, p.get_sorted)
             return self.plot
