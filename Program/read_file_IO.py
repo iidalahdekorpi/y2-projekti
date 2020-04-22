@@ -8,7 +8,7 @@ class ReadFile():
     def load_coordinates(self, input):
 
         self.plot = Lineplot()
-        points_read = []
+        groups_read = []
         try:
             f = open(input, "r")
             for line in f:
@@ -17,14 +17,17 @@ class ReadFile():
                     raise CorruptedCoordinateFileError("ERROR in data format")
                 x = line[0]
                 y = line[1]
+                coordinate = Coordinates(x,y)
                 group = line[2]
-                if group  not in self.plot.lines:
+                if group not in groups_read:
+                    if groups_read != []:
+                        self.plot.add_line(points.group, points)
                     points = Points(group)
-                points.add_point(Coordinates(x,y))
-                points_read.append(points)
+                    groups_read.append(group)
+                points.add_point(coordinate)
+            self.plot.add_line(points.group, points)
             f.close()
-            for p in points_read:
-                self.plot.add_line(p.group, p.get_sorted)
+            print(points.points)
             return self.plot
 
 
