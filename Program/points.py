@@ -22,6 +22,8 @@ class Points():
         
     def get_y_min(self):
         return min([p[1] for p in self.points])
+
+
     
     
     

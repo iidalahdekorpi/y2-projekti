@@ -15,10 +15,10 @@ class ReadFile():
                 line = line.split(",")
                 if len(line) != 3:
                     raise CorruptedCoordinateFileError("ERROR in data format")
-                x = line[0]
-                y = line[1]
+                x = float(line[0])
+                y = float(line[1])
                 coordinate = Coordinates(x,y)
-                group = line[2]
+                group = line[2].strip()
                 if group not in groups_read:
                     if groups_read != []:
                         self.plot.add_line(points.group, points)
@@ -27,7 +27,6 @@ class ReadFile():
                 points.add_point(coordinate)
             self.plot.add_line(points.group, points)
             f.close()
-            print(points.points)
             return self.plot
 
 

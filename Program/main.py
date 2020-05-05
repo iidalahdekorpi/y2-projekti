@@ -8,6 +8,7 @@ def main():
     file = 'Program/esim.txt'
     global app
     app = QtWidgets.QApplication(sys.argv)
+    app.processEvents()
     gui = GUI(file)
     sys.exit(app.exec_())
 
