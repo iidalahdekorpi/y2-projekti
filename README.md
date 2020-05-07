@@ -1,19 +1,16 @@
-1. Projektin tiedostoa lukeva osuus on melkein valmis, virheiden käsittelyä lukuunottamatta. 
-Pisteet, kuvaajan kaikki koordinaatit ja kaikki viivadiagrammit säilövät luokat on toteutettu.
-Test ja GUI -luokkia aloitettu ja ohjelman testaus myös manuaalisesti käynnissä. Tiedonhakua tehty paljon.
+# Numeerisen datan visualisointikirjasto
 
+## Esittely
 
-2. Käyttöohje
+## Tiedosto- ja kansiorakenne
+    
+Kansiosta Documents löytyy projektin tekninen suunnitelma, yleissuunnitelma sekä projektidokumentti. 
+Kansiosta Program löytyy ohjelmakoodi sekä esimerkkitekstitiedostot. Ohjelman käynnistyksessä tärkeimpänä on main.py -tiedosto.
 
-- Ohjelmaa voi ajaa, mutta se avaa vain tyhjän ikkunan
-- Ohjelma käynnistetään ajamalla main.py tiedosto ja kirjoittamalla tiedoston nimi.
-- Ohjelmalla ei voi vielä tehdä oikeastaan mitään.
+## Asennusohje
 
-3. Aikataulu
+Ohjelma tarvitsee PyQt-kirjaston lisäksi ainoastaan sekä Pythonin sisäänrakennettua random-kirjastoa.
 
-- Olen käyttänyt projektiin arviolta n. 30-40 tuntia. 
-- Luulen, että alussa luomani aikataulu on melko totuudenmukainen, eikä muutoksia tule olemaan. Ehkä toteutus saattaa muuttua ja teen asioita eri järjestyksessä.
+## Käyttöohje
 
-4. Muuta
-
-- Ongelmia suunnitellun luokkarakenteen kainssa on ollut, mutta olen tehnyt järkevämpiä ratkaisuja ja muuttanut niitä. 
+Ohjelma ajetaan komentoriviltä komennolla 'python3 main.py'. Sen jälkeen komentoriville kirjoitetaan tiedoston nimi ja halutun visualisointitavan tyyppi (line/pie/column).
