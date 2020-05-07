@@ -1,0 +1,15 @@
+Script started on Thu May  7 22:36:10 2020
+
+The default interactive shell is now zsh.
+To update your account to use zsh, please run `chsh -s /bin/zsh`.
+For more details, please visit https://support.apple.com/kb/HT208050.
+[?1034hbash-3.2$ python3 main.py
+Insert filename: 
+esim3.txt
+Insert graph type (line/pie/column): 
+line
+exit
+bash-3.2$ exit
+exit
+
+Script done on Thu May  7 22:37:19 2020

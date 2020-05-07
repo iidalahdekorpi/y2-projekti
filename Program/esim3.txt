@@ -1,0 +1,10 @@
+1,25,helsinki
+2,23,helsinki
+3,22,helsinki
+4,27,helsinki
+5,28,helsinki
+1,23,tampere
+2,19,tampere
+3,20,tampere
+4,22,tampere
+5,21,tampere

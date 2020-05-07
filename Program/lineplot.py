@@ -1,6 +1,8 @@
 
 class Lineplot():
 
+    # Stores all the lines in one Lineplot object
+
     def __init__(self):
         self.lines = {}
     
@@ -8,28 +10,28 @@ class Lineplot():
         self.lines[group] = points
 
     def get_x_max(self):
-        max_x = 0
+        max_x = -float('Inf')
         for group, points in self.lines.items():
             if max([p.x for p in points.points]) > max_x:
                 max_x =  max([p.x for p in points.points])
         return max_x
 
     def get_y_max(self):
-        max_y = 0
+        max_y = -float('Inf')
         for group, points in self.lines.items():
             if max([p.y for p in points.points]) > max_y:
                 max_y = max([p.y for p in points.points])
         return max_y
 
     def get_x_min(self):
-        min_x = 0 
+        min_x = float('Inf')
         for group, points  in self.lines.items():
             if min([p.x for p in points.points]) < min_x:
                 min_x = min([p.x for p in points.points])
         return min_x  
 
     def get_y_min(self):
-        min_y = 0
+        min_y = float('Inf')
         for group, points in self.lines.items():
             if min([p.y for p in points.points]) < min_y:
                 min_y = min([p.y for p in points.points])

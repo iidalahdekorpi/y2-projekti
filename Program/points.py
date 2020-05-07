@@ -1,5 +1,7 @@
 
 class Points():
+
+    # Stores one line information
     
     def __init__(self, group):
         self.group = group 

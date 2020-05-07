@@ -24,8 +24,13 @@ class Test(unittest.TestCase):
 
     def test_max_min(self):
         coordinates = self.plot.load_coordinates('esim.txt')
-        self.assertEqual("3", coordinates.get_x_max(), "Max x-coordinate not right!")
+        self.assertEqual("6", coordinates.get_x_max(), "Max x-coordinate not right!")
         self.assertEqual("3", coordinates.get_y_max(), "Max y-coordinate not right!")
-        self.assertEqual("1", coordinates.get_x_min(), "Min x-coordinate not right!")
-        self.assertEqual("1", coordinates.get_x_min(), "Min y-coordinate not right!")        
+        self.assertEqual("0", coordinates.get_x_min(), "Min x-coordinate not right!")
+        self.assertEqual("0", coordinates.get_x_min(), "Min y-coordinate not right!")   
+
+    def test_range(self):
+        coordinates = self.plot.load_coordinates('esim3.txt')
+        self.assertEqual("5", coordinates.get_x_range(), "X Range not right!") 
+        self.assertEqual("6", coordinates.get_y_range(), "Y Range not right!")    
 
