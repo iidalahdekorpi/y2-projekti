@@ -17,7 +17,7 @@ class GUI(QtWidgets.QMainWindow):
         self.colors = []
         self.yticks = []
         self.xticks = []
-        #self.randomize_color()
+        self.randomize_color()
         self.bcolor = QtGui.QColor(255, 255, 255)
         self.acolor = QtGui.QColor(0, 0, 0)
         self.square_size = 30
@@ -33,7 +33,6 @@ class GUI(QtWidgets.QMainWindow):
     def init_window(self):
 
         self.setGeometry(60, 60, 800, 600)
-        self.setWindowTitle = ('Data visualization')
         self.set_toolBar()
         self.show()
 
@@ -45,6 +44,8 @@ class GUI(QtWidgets.QMainWindow):
 
         # Metod to draw the whole graph
 
+        self.xticksdrawn = []
+        self.yticksdrawn = []
         painter = QtGui.QPainter(self)
         if self.grid:
             self.draw_grid(painter)
@@ -54,13 +55,12 @@ class GUI(QtWidgets.QMainWindow):
         self.draw_axis(painter)
         g = 0
         for group, points in self.plot.lines.items():
-            self.leg = group
             pen = QtGui.QPen()
-            linecolor = QtCore.Qt.black
+            linecolor = self.colors[g]
             g += 1
             pen.setColor(linecolor)
             painter.setPen(pen)
-            painter.drawText(self.width()*0.8, self.height()*0.1 + g*15, self.leg)
+            painter.drawText(self.width()*0.8, self.height()*0.1 + g*15, group)
             self.draw_lines(group, points, painter, pen, linecolor)
             self.update()
         painter.end()
@@ -124,12 +124,19 @@ class GUI(QtWidgets.QMainWindow):
             pen.setWidth(2)
             painter.setPen(pen)
 
-            painter.drawLine(x1, self.height()*0.94, x1, self.height()*0.96)
-            painter.drawLine(self.width()*0.04, y1, self.width()*0.06, y1)
-
-            if self.nos == True:
-                painter.drawText(x1, self.height()*0.92, str(px))
-                painter.drawText(self.width()*0.07, y1, str(py))
+            # X-axis
+            if px not in self.xticksdrawn:
+                painter.drawLine(x1, self.height()*0.94, x1, self.height()*0.96)
+                if self.nos == True:
+                    painter.drawText(x1, self.height()*0.92, str(px))
+                self.xticksdrawn.append(px)
+                
+            # Y-axis
+            if py not in self.yticksdrawn:
+                painter.drawLine(self.width()*0.04, y1, self.width()*0.06, y1)
+                if self.nos == True:
+                    painter.drawText(self.width()*0.07, y1, str(py))
+                self.yticksdrawn.append(py)
 
 
     def draw_lines(self, group, points, painter, pen, linecolor):
@@ -169,14 +176,14 @@ class GUI(QtWidgets.QMainWindow):
             i += 1
         
             
-    '''           
+               
     def randomize_color(self):
 
         # Method to randomize line colors 
 
         for i in range(len(self.plot.lines)):
             self.colors.append(QtGui.QColor(random.randint(0,255), random.randint(0,255), random.randint(0,255)))
-'''
+
     def gridon(self):
 
         # Let user set grid on/off
