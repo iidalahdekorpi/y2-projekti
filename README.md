@@ -9,7 +9,7 @@ Kansiosta Program löytyy ohjelmakoodi sekä esimerkkitekstitiedostot. Ohjelman 
 
 ## Asennusohje
 
-Ohjelma tarvitsee PyQt-kirjaston lisäksi ainoastaan sekä Pythonin sisäänrakennettua random-kirjastoa.
+Ohjelma tarvitsee PyQt-kirjaston lisäksi ainoastaan Pythonin sisäänrakennettua random-kirjastoa.
 
 ## Käyttöohje
 
